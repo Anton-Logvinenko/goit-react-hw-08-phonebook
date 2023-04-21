@@ -1,0 +1,9 @@
+.header{
+padding:10px 50px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-bottom: solid 4px rgba(23, 117, 240, 0.938);
+
+}
+
