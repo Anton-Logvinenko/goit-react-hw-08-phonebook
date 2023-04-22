@@ -11,7 +11,7 @@ import { PrivateRoute } from '../PrivateRouter';
 import { RestrictRoute } from '../RestrictRoute';
 import { refreshUser } from '../../redux/auth/authOperations';
 import { selectAuthIsRefreshing } from '../../redux/auth/authSelectors';
-import css from './App.module.css';
+
 
 
 function App() {
@@ -24,8 +24,7 @@ function App() {
   return isRefreshing ? (
     <b>Fetching user data...</b>
   ) : (
-    <div className={css.mainConteiner}>
-      <Routes>
+         <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route
@@ -51,7 +50,7 @@ function App() {
           />
         </Route>
       </Routes>
-    </div>
+    
    
   );
 }

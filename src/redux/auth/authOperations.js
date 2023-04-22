@@ -19,10 +19,10 @@ export const register = createAsyncThunk(
       const response = await axios.post('/users/signup', credentials);
       //   После успешной регистрации добавляем токен в заголовок HTTP
       setToken(response.data.token);
-      console.log('data', response.data.token);
+     
       return response.data;
     } catch (error) {
-      console.log(error.message);
+     
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -37,7 +37,7 @@ export const logIn = createAsyncThunk(
       setToken(response.data.token);
       return response.data;
     } catch (error) {
-      console.log(error.message);
+  
        return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -65,7 +65,7 @@ export const refreshUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) 
 
   //  проверка на наличие токена если нет, то return
   if (!stateToken) {
-    console.log('No valid token')
+   
     return thunkAPI.rejectWithValue('No valid token');
   }
 
@@ -75,7 +75,7 @@ export const refreshUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) 
   // берем get инвормацию от бекэнда
   try {
     const response= await axios.get('/users/current');
-     console.log( 'refresh', response.data)
+     
     return response.data
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
